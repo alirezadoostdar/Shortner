@@ -6,14 +6,15 @@ using System.Text;
 
 namespace ShortnerUrl.Services
 {
-    public class ShortenService(ShortnerUrlDbContext dbContext)
+    public class ShortenService(ShortnerUrlDbContext dbContext,IConfiguration configuration)
     {
         private readonly ShortnerUrlDbContext _dbContext = dbContext;
+        private readonly IConfiguration _configuration = configuration;
         public async Task<string> ShortenUrlAsync(string longUrl ,CancellationToken cancellationToken)
         {
             var url =await _dbContext.urlTags.FirstOrDefaultAsync(x => x.DestinationUrl == longUrl,cancellationToken);
             if (url is not null)
-                return url.ShortenCode;
+                return GetServiceUrl(url.ShortenCode);
 
             var urlTag = new UrlTag
             { 
@@ -25,8 +26,11 @@ namespace ShortnerUrl.Services
             _dbContext.urlTags.Add(urlTag);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return urlTag.ShortenCode;
+            return GetServiceUrl(urlTag.ShortenCode);
         }
+
+        private string GetServiceUrl(string shortenCode)
+            => $"{_configuration["BaseUrl"]}/{shortenCode}";
 
         private async Task<string> GenerateShortenCode(string longUrl)
         {
@@ -34,7 +38,7 @@ namespace ShortnerUrl.Services
 
             byte[] hashBytes = mD5.ComputeHash(Encoding.UTF8.GetBytes(longUrl));
             string hashCode = BitConverter.ToString(hashBytes)
-                                          .Replace(oldValue: "_", newValue: "")
+                                          .Replace(oldValue: "-", newValue: "")
                                           .ToLower();
 
             for (int i = 0; i < 7; i++)
@@ -48,6 +52,16 @@ namespace ShortnerUrl.Services
             }
 
             throw new Exception("Invalid Shorten code generate");
+        }
+
+        public async Task<string> GetLongUrl(string shortenCode,CancellationToken cancellationToken)
+        {
+            var longUrl =await _dbContext.urlTags.FirstOrDefaultAsync(x => x.ShortenCode==shortenCode);
+
+            if (longUrl is not null)
+                return longUrl.DestinationUrl;
+
+            throw new Exception("Invalid shorten code");
         }
     }
 }
