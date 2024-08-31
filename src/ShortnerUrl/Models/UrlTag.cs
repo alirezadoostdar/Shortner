@@ -7,8 +7,8 @@ namespace ShortnerUrl.Models
     public class UrlTag
     {
         public ObjectId Id { get; set; }
-        public string ShortenCode { get; set; }
-        public string DestinationUrl { get; set; }
+        public required string ShortenCode { get; set; }
+        public required string DestinationUrl { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 }
