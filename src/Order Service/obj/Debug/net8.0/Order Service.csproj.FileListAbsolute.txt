@@ -1,0 +1,19 @@
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Order Service.exe
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Order Service.deps.json
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Order Service.runtimeconfig.json
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Order Service.dll
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Order Service.pdb
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Polly.dll
+D:\OneDrive\System Design\Shortner\src\Order Service\bin\Debug\net8.0\Polly.Core.dll
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.csproj.AssemblyReference.cache
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.AssemblyInfoInputs.cache
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.AssemblyInfo.cs
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.csproj.CoreCompileInputs.cache
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.sourcelink.json
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.csproj.CopyComplete
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.dll
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\refint\Order Service.dll
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.pdb
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\Order Service.genruntimeconfig.cache
+D:\OneDrive\System Design\Shortner\src\Order Service\obj\Debug\net8.0\ref\Order Service.dll

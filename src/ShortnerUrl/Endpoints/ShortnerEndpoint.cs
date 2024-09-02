@@ -10,7 +10,7 @@ public static class ShortnerEndpoint
         endpoint.MapGet("/Shorten", async (
             ShortenService service,
             CancellationToken cancellationToken,
-            [FromQuery(Name ="long)url")] string url) =>
+            [FromQuery(Name ="long_url")] string url) =>
         {
             // validation : xss attack
             var shortenUrl = await service.ShortenUrlAsync(url, cancellationToken);

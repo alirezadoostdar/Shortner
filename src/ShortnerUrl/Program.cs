@@ -31,6 +31,7 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.MapShortenEndpoint();
+app.MapRedirectEndpoint();
 
 app.Run();
 

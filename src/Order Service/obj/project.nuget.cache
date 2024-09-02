@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "E/ftM6Hed/A+j9hmMQb6LrgJ9zRGrdS+95Gi4nXIYoDneWMX9cec3Nng0JKMl/NcCIzZRq+NUvxnl1GmcaMdzA==",
+  "success": true,
+  "projectFilePath": "D:\\OneDrive\\System Design\\Shortner\\src\\Order Service\\Order Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alireza\\.nuget\\packages\\polly\\8.4.1\\polly.8.4.1.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\polly.core\\8.4.1\\polly.core.8.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
