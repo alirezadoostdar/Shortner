@@ -47,3 +47,8 @@ D:\OneDrive\System Design\Shortner\src\ShortnerUrl\obj\Debug\net8.0\refint\Short
 D:\OneDrive\System Design\Shortner\src\ShortnerUrl\obj\Debug\net8.0\ShortnerUrl.pdb
 D:\OneDrive\System Design\Shortner\src\ShortnerUrl\obj\Debug\net8.0\ShortnerUrl.genruntimeconfig.cache
 D:\OneDrive\System Design\Shortner\src\ShortnerUrl\obj\Debug\net8.0\ref\ShortnerUrl.dll
+D:\OneDrive\System Design\Shortner\src\ShortnerUrl\bin\Debug\net8.0\OpenTelemetry.dll
+D:\OneDrive\System Design\Shortner\src\ShortnerUrl\bin\Debug\net8.0\OpenTelemetry.Api.dll
+D:\OneDrive\System Design\Shortner\src\ShortnerUrl\bin\Debug\net8.0\OpenTelemetry.Api.ProviderBuilderExtensions.dll
+D:\OneDrive\System Design\Shortner\src\ShortnerUrl\bin\Debug\net8.0\OpenTelemetry.Exporter.Prometheus.AspNetCore.dll
+D:\OneDrive\System Design\Shortner\src\ShortnerUrl\bin\Debug\net8.0\OpenTelemetry.Extensions.Hosting.dll

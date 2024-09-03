@@ -1,17 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShortnerUrl.Infrastructures;
 using ShortnerUrl.Models;
+using ShortnerUrl.Observebility;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace ShortnerUrl.Services
 {
-    public class ShortenService(ShortnerUrlDbContext dbContext,IConfiguration configuration)
+    public class ShortenService(
+        ShortnerUrlDbContext dbContext,
+        ShortenDiagnotics shortenDiagnotics,
+        IConfiguration configuration)
     {
         private readonly ShortnerUrlDbContext _dbContext = dbContext;
         private readonly IConfiguration _configuration = configuration;
+        private readonly ShortenDiagnotics _shortenDiagnotics = shortenDiagnotics;
         public async Task<string> ShortenUrlAsync(string longUrl ,CancellationToken cancellationToken)
         {
+            _shortenDiagnotics.AddShorten();
             var url =await _dbContext.urlTags.FirstOrDefaultAsync(x => x.DestinationUrl == longUrl,cancellationToken);
             if (url is not null)
                 return GetServiceUrl(url.ShortenCode);
@@ -56,6 +62,7 @@ namespace ShortnerUrl.Services
 
         public async Task<string> GetLongUrl(string shortenCode,CancellationToken cancellationToken)
         {
+            _shortenDiagnotics.AddRedirection();
             var longUrl =await _dbContext.urlTags.FirstOrDefaultAsync(x => x.ShortenCode==shortenCode);
 
             if (longUrl is not null)

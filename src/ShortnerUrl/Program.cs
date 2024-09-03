@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using OpenTelemetry.Metrics;
 using ShortnerUrl.Endpoints;
 using ShortnerUrl.Infrastructures;
+using ShortnerUrl.Observebility;
 using ShortnerUrl.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ShortenService>();
+builder.Services.AddOpenTelemetry().WithMetrics(builder =>
+{
+    builder.AddPrometheusExporter();
+    var metric = new []
+    {
+        ShortenDiagnotics.MeterName
+    };
+
+    builder.AddMeter(metric);
+});
+
+builder.Services.AddSingleton<ShortenDiagnotics>();
+
 builder.Services.AddDbContext<ShortnerUrlDbContext>(configure =>
 {
     var host = builder.Configuration["MongoDbConnectionString:Host"];
@@ -32,6 +47,7 @@ app.UseHttpsRedirection();
 
 app.MapShortenEndpoint();
 app.MapRedirectEndpoint();
+app.UseOpenTelemetryPrometheusScrapingEndpoint();
 
 app.Run();
 
